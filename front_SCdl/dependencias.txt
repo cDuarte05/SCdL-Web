@@ -1,0 +1,25 @@
+login-page@0.0.0 C:\Users\hduar\Desktop\login-page
++-- @angular-devkit/build-angular@17.2.3
++-- @angular/animations@17.2.4
++-- @angular/cli@20.3.7
++-- @angular/common@17.2.4
++-- @angular/compiler-cli@17.2.4
++-- @angular/compiler@17.2.4
++-- @angular/core@17.2.4
++-- @angular/forms@17.2.4
++-- @angular/platform-browser-dynamic@17.2.4
++-- @angular/platform-browser@17.2.4
++-- @angular/router@17.2.4
++-- @types/jasmine@5.1.4
++-- jasmine-core@5.1.2
++-- karma-chrome-launcher@3.2.0
++-- karma-coverage@2.2.1
++-- karma-jasmine-html-reporter@2.1.0
++-- karma-jasmine@5.1.0
++-- karma@6.4.3
++-- ngx-toastr@18.0.0
++-- rxjs@7.8.1
++-- tslib@2.6.2
++-- typescript@5.3.3
+`-- zone.js@0.14.4
+
