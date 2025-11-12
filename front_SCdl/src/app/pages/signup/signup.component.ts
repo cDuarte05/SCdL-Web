@@ -51,6 +51,6 @@ export class SignUpComponent {
   }
 
   navigate(){
-    this.router.navigate(["login"])
+    this.router.navigate([""])
   }
 }
