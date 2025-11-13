@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Upload } from './upload';
+import { MainScreen } from './main-screen';
 
-describe('Upload', () => {
-  let component: Upload;
-  let fixture: ComponentFixture<Upload>;
+describe('MainScreen', () => {
+  let component: MainScreen;
+  let fixture: ComponentFixture<MainScreen>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Upload]
+      imports: [MainScreen]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Upload);
+    fixture = TestBed.createComponent(MainScreen);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
