@@ -3,7 +3,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/signup/signup.component';
 import { UserComponent } from './pages/user/user.component';
 import { AuthGuard } from './services/auth-guard.service';
-import { Upload } from './pages/upload/upload';
+import { MainScreen } from './pages/main-screen/main-screen';
 
 export const routes: Routes = [
     {
@@ -20,7 +20,7 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: "upload",
-        component: Upload,
+        path: "main",
+        component: MainScreen,
     }
 ];

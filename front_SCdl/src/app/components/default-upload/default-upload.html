@@ -1,8 +1,22 @@
 <div class="upload-wrapper">
-  <label>{{ label }}</label>
+  <button type="button" class="upload-btn" (click)="triggerFileInput(fileInput)"> <!--Passar o input por parametro-->
+    {{ label }}
+  </button>
   <div class="upload-content">
     <input
-      [type]="type" 
-    />
+    #fileInput 
+      [type]="type"
+      [accept] = "accept"
+      (change)= "onFileSelected($event)" 
+      hidden 
+    /><!--esse change acontece quando um elemento do input é alterado, ai ele ativa esse evento-->
   </div>
 </div>
+
+<!--
+Como o botão normal de selecionar é feio, aqui escondemos ele e criamos um botão que possui o 
+  evento de click, então quando esse click acontecer,
+   o input é executado, abrindo o seletor de arquivos.
+    E quando o input sente o arquivo, ou seja, vê alteração no input, 
+      ele chama o evento change e assim, chama o acontecimento de manipular o arquivo  
+-->

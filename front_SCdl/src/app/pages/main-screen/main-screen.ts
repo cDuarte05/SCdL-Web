@@ -19,21 +19,21 @@ export class MainScreen {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      upload_proposta: [null, [Validators.required, this.fileValidator]],
-      upload_licitacao2: [null, [Validators.required, this.fileValidator]],
+      upload_proposta: [null, [Validators.required]],
+      upload_licitacao2: [null, [Validators.required]],
     });
   }
-
+}
   //quando a função fileValidator é chamada, o angular automaticamente passa o campo que possui o formControl como parametro
 
-  fileValidator(arq : any){
-    const file = arq?.value
+//   fileValidator(arq : any){
+//     const file = arq?.value
 
-    if(!file || file.length === 0){
-      return {fileRequired: true} //erro de validação
-    }
+//     if(!file || file.length === 0){
+//       return {fileRequired: true} //erro de validação
+//     }
     
-    if(file.length > 1)
+//     if(file.length > 1)
   
-  }
-}
+//   }
+// 
