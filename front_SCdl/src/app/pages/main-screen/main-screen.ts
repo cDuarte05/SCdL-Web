@@ -24,6 +24,8 @@ export class MainScreen {
     });
   }
 }
+
+
   //quando a função fileValidator é chamada, o angular automaticamente passa o campo que possui o formControl como parametro
 
 //   fileValidator(arq : any){

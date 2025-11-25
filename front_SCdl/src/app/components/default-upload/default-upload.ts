@@ -31,7 +31,7 @@ export class DefaultUpload {
 }
 
 /*componente padrão pro que vai ser usado em cada um dos botões de upload
-quando este componente for chamado co componente pai (main-screen), lá que os 
+quando este componente for chamado no componente pai (main-screen), lá que os 
 parametros vão ser passados para que a tela parte do botão possa ser montada
 */
 /* O output serve para que a classe filho possa ser o mais generica possivel

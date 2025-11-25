@@ -3,18 +3,23 @@
     <form [formGroup]="form">
       <div class="upload_proposta">
         <app-default-upload
-        type="file">
-        </app-default-upload>
-      </div>
-      <div class="upload_licitacao">
-        <app-default-upload
-        type = "file"
-        accept = ".pdf"
-         
+          type="file"
+          (fileSelected)="onPropostaSelected($event)"
+          label="Enviar Proposta"
         >
         </app-default-upload>
       </div>
+
+      <div class="upload_licitacao">
+        <app-default-upload
+          type="file"
+          accept=".pdf"
+          (fileSelected)="onLicitacaoSelected($event)"
+          label="Enviar Licitação"
+        >
+        </app-default-upload>
+      </div>
+      <!--fileSelected é o evento para o pai-->
     </form>
   </section>
 </main>
-h1
