@@ -1,25 +1,17 @@
-<main>
-  <section>
-    <form [formGroup]="form">
-      <div class="upload_proposta">
-        <app-default-upload
-          type="file"
-          (fileSelected)="onPropostaSelected($event)"
-          label="Enviar Proposta"
-        >
-        </app-default-upload>
-      </div>
+<form [formGroup]="form">
+  
+  <app-default-upload
+    formControlName="upload_proposta"
+    label="Enviar Proposta"
+    accept=".pdf"
+  >
+  </app-default-upload>
 
-      <div class="upload_licitacao">
-        <app-default-upload
-          type="file"
-          accept=".pdf"
-          (fileSelected)="onLicitacaoSelected($event)"
-          label="Enviar Licitação"
-        >
-        </app-default-upload>
-      </div>
-      <!--fileSelected é o evento para o pai-->
-    </form>
-  </section>
-</main>
+  <app-default-upload
+    formControlName="upload_licitacao"
+    label="Enviar Licitação"
+    accept=".pdf"
+  >
+  </app-default-upload>
+
+</form>

@@ -1,16 +1,26 @@
 <div class="upload-wrapper">
-  <button type="button" class="upload-btn" (click)="triggerFileInput(fileInput)"> <!--Passar o input por parametro-->
+  
+  <!-- Botão estilizado -->
+  <button 
+    type="button" 
+    class="upload-btn"
+    (click)="triggerFileInput(fileInput)">
     {{ label }}
   </button>
-  <div class="upload-content">
-    <input
-    #fileInput 
-      [type]="type"
-      [accept] = "accept"
-      (change)= "onFileSelected($event)" 
-      hidden 
-    /><!--esse change acontece quando um elemento do input é alterado, ai ele ativa esse evento-->
-  </div>
+
+  <!-- Input escondido -->
+  <input
+    #fileInput
+    type="file"
+    [accept]="accept"
+    (change)="onFileChange($event)"
+    hidden
+  />
+
+  <p class="file-name" *ngIf="file">
+    {{ file?.name }}
+  </p>
+
 </div>
 
 <!--
