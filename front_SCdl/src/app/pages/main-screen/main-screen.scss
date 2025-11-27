@@ -1,0 +1,74 @@
+* {
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    .titulo-principal {
+        padding-top: 50px;
+        font-weight: bold;
+    }
+
+    .subtitulo {
+        font-size: 1.2rem;
+        color: #5a5a5a;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .formulario-container {
+        background: #ffffff;
+        padding: 30px 35px;
+        border-radius: 14px;
+        box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .upload-row {
+        display: flex;
+        gap: 20px;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+        .flex-fill {
+            flex: 1 1 auto; // permite que aumente conforme o conteúdo
+            width: auto;
+        }
+    }
+
+    .upload-progress {
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .progress {
+            height: 25px;
+
+            .progress-bar {
+                font-size: 0.9rem;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .botao-comparar {
+        background-color: black;
+        width: 70%;
+        align-self: center;
+        font-size: 1.2rem;
+        padding: 12px;
+        border-radius: 10px;
+        transition: 0.2s ease;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 3px 12px rgb(175, 154, 110);
+        }
+    }
+}
+

@@ -1,25 +1,22 @@
 <div class="upload-wrapper">
-  
-  <!-- Botão estilizado -->
+<!--   
+  Botão estilizado 
   <button 
     type="button" 
     class="upload-btn"
     (click)="triggerFileInput(fileInput)">
     {{ label }}
-  </button>
+  </button>  
+-->
 
-  <!-- Input escondido -->
+  <!-- Input com bootstrap -->
   <input
     #fileInput
     type="file"
     [accept]="accept"
     (change)="onFileChange($event)"
-    hidden
+    class="form-control"
   />
-
-  <p class="file-name" *ngIf="file">
-    {{ file?.name }}
-  </p>
 
 </div>
 

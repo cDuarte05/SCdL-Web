@@ -15,7 +15,9 @@ import { DefaultUpload } from '../../components/default-upload/default-upload';
   styleUrl: './main-screen.scss',
 })
 export class MainScreen {
+  
   form!: FormGroup;
+  porcentagemEnvio = 0;
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -26,6 +28,18 @@ export class MainScreen {
 
   onPropostaSelected(file: File) {
     this.form.get;
+  }
+
+  compararDocumentos() {
+    this.porcentagemEnvio = 0;
+
+    const intervalo = setInterval(() => {
+      if (this.porcentagemEnvio >= 100) {
+        clearInterval(intervalo);
+        return;
+      }
+      this.porcentagemEnvio += 10;
+    }, 300);
   }
 }
 

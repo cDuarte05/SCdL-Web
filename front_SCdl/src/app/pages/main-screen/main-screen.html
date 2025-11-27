@@ -1,17 +1,61 @@
-<form [formGroup]="form">
-  
-  <app-default-upload
-    formControlName="upload_proposta"
-    label="Enviar Proposta"
-    accept=".pdf"
-  >
-  </app-default-upload>
+<body>
+  <h1 class="display-3 text-center titulo-principal">
+    Sistema Comparativo de Licitação
+  </h1>
 
-  <app-default-upload
-    formControlName="upload_licitacao"
-    label="Enviar Licitação"
-    accept=".pdf"
-  >
-  </app-default-upload>
+  <p class="subtitulo text-center">
+    Envie a Proposta e a Licitação para que o sistema realize a comparação automática
+    dos documentos e gere um relatório detalhado.
+  </p>
 
-</form>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-10 col-md-8 col-lg-6 formulario-container">
+        <form [formGroup]="form" class="form d-flex flex-column gap-4">
+
+          <!-- Linha de inputs lado a lado -->
+          <div class="d-flex flex-row gap-3 justify-content-between upload-row">
+            <div class="flex-fill">
+              <app-default-upload
+                formControlName="upload_proposta"
+                label="Enviar Proposta"
+                accept=".pdf"
+              ></app-default-upload>
+            </div>
+
+            <div class="flex-fill">
+              <app-default-upload
+                formControlName="upload_licitacao"
+                label="Enviar Licitação"
+                accept=".pdf"
+              ></app-default-upload>
+            </div>
+          </div>
+
+          <!-- Porcentagem de envio -->
+          <div class="upload-progress mt-3">
+            <label>Progresso do Envio:</label>
+            <div class="progress">
+              <div
+                class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                role="progressbar"
+                [style.width.%]="porcentagemEnvio"
+              >
+                {{ porcentagemEnvio }}%
+              </div>
+            </div>
+          </div>
+
+          <!-- Botão de comparar -->
+          <button
+            type="button"
+            class="btn btn-primary btn-lg mt-4 botao-comparar"
+            (click)="compararDocumentos()"
+          >
+            Ativar Comparação
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

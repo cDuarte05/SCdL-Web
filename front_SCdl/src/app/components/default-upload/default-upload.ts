@@ -20,10 +20,12 @@ export class DefaultUpload implements ControlValueAccessor {
   @Input() inputName: string = '';
 
   file?: File | null;
+  
 
-  triggerFileInput(input: HTMLInputElement) {
-    input.click();
-  }
+  // triggerFileInput(input: HTMLInputElement) {
+  //   input.click();
+  // }
+
   //Essas duas variaveis são funções vazias definidas para não dar erro quando forem chamadas
   onChange = (file: File | null) => {};
   //mesmo que vá ser substituido pelo fn, isso acontece em tempo de execução,
