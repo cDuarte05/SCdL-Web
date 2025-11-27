@@ -7,11 +7,12 @@ import {
 } from '@angular/forms';
 import { DefaultUpload } from '../../components/default-upload/default-upload';
 import { MenuComponent } from '../../components/menu/menu';
+import { FooterComponent } from '../../components/footer/footer';
 
 @Component({
   selector: 'app-main-screen',
   standalone: true,
-  imports: [ReactiveFormsModule, DefaultUpload, MenuComponent],
+  imports: [ReactiveFormsModule, DefaultUpload, MenuComponent, FooterComponent],
   templateUrl: './main-screen.html',
   styleUrl: './main-screen.scss',
 })
