@@ -1,0 +1,34 @@
+@import "../../../styles/variables.scss";
+
+nav {
+    background-color: $primary-color;
+
+    .txt-marca {}
+
+    .nav-item {
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+            background-color: darken($primary-color, 20%);
+            border-radius: 550px;
+        }
+
+        &:active {
+            box-shadow: 0 2px 0 #1f5f8b;
+            transform: translateY(2px);
+        }
+    }
+
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+
+        &:hover {
+            color: #ffffff !important;
+        }
+    }
+}

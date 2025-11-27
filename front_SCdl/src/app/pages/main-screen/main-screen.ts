@@ -6,11 +6,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { DefaultUpload } from '../../components/default-upload/default-upload';
+import { MenuComponent } from '../../components/menu/menu';
 
 @Component({
   selector: 'app-main-screen',
   standalone: true,
-  imports: [ReactiveFormsModule, DefaultUpload],
+  imports: [ReactiveFormsModule, DefaultUpload, MenuComponent],
   templateUrl: './main-screen.html',
   styleUrl: './main-screen.scss',
 })

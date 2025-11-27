@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark px-3">
+  <a class="navbar-brand fw-bold txt-marca" routerLink="/">
+    SCdl
+  </a>
+
+  <button 
+    class="navbar-toggler" 
+    type="button" 
+    data-bs-toggle="collapse" 
+    data-bs-target="#navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+      <!-- Tela de resultados -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/resultados">Resultados</a>
+      </li>
+
+      <!-- Meus arquivos -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/arquivos">Meus Arquivos</a>
+      </li>
+
+      <!-- Minhas análises -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/analises">Minhas Análises</a>
+      </li>
+    </ul>
+
+    <!-- Usuário / Logout -->
+    <div class="d-flex">
+      <div class="dropdown">
+        <button
+          class="btn btn-outline-light dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown">
+          Conta
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <button class="dropdown-item" (click)="logout()">
+              Sair da conta
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
