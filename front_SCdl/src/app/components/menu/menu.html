@@ -1,22 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark px-3">
-  <a class="navbar-brand fw-bold txt-marca" routerLink="/">
-    SCdl
-  </a>
+  <a class="navbar-brand fw-bold txt-marca" routerLink="/main"> SCdl </a>
 
-  <button 
-    class="navbar-toggler" 
-    type="button" 
-    data-bs-toggle="collapse" 
-    data-bs-target="#navbarSupportedContent">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-      <!-- Tela de resultados -->
+      <!-- Tela de comparação (main screen) -->
       <li class="nav-item">
-        <a class="nav-link" routerLink="/resultados">Resultados</a>
+        <a class="nav-link" routerLink="/main">Comparação</a>
       </li>
 
       <!-- Meus arquivos -->
@@ -36,9 +34,11 @@
         <button
           class="btn btn-outline-light dropdown-toggle"
           type="button"
-          data-bs-toggle="dropdown">
+          data-bs-toggle="dropdown"
+        >
           Conta
         </button>
+
         <ul class="dropdown-menu dropdown-menu-end">
           <li>
             <button class="dropdown-item" (click)="logout()">

@@ -1,0 +1,29 @@
+
+.titulo-principal {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.porcentagem-card {
+  border-radius: 15px;
+  background-color: #f8f9fa;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.animate-fade {
+  animation: fadeIn .5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

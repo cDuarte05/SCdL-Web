@@ -11,7 +11,7 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  login(email: string, password: string){
+  login(email: string, password: string) {
     return this.httpClient.post<LoginResponse>(this.apiUrl + "/login", { email, password }).pipe(
       tap((value) => {
         sessionStorage.setItem("auth-token", value.token)
@@ -20,12 +20,16 @@ export class LoginService {
     )
   }
 
-  signup(name: string, email: string, password: string){
+  signup(name: string, email: string, password: string) {
     return this.httpClient.post<LoginResponse>(this.apiUrl + "/register", { name, email, password }).pipe(
       tap((value) => {
         sessionStorage.setItem("auth-token", value.token)
         sessionStorage.setItem("username", value.name)
       })
     )
+  }
+
+  isLoggedIn(): boolean {
+    return !!sessionStorage.getItem("auth-token");
   }
 }
