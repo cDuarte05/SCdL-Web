@@ -27,3 +27,17 @@
     transform: translateY(0);
   }
 }
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.resultado-container {
+  flex: 1;
+}
+
+.footer-fixo {
+  margin-top: auto;
+}

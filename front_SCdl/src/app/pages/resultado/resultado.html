@@ -1,41 +1,41 @@
-<header>
-  <app-menu></app-menu>
-</header>
-<div class="container mt-5 animate-fade">
-  <h2 class="text-center titulo-principal mb-4">Resultado da Análise da IA</h2>
 
-  <!-- Porcentagem -->
-  <div class="row justify-content-center mb-4">
-    <div class="col-md-6">
-      <div class="card text-center shadow-lg porcentagem-card">
-        <div class="card-body">
-          <h3 class="display-5 fw-bold">{{ porcentagem }}%</h3>
-          <p class="mb-0">Porcentagem de Similaridade</p>
+<div class="resultado-container">
+  <div class="container mt-5 animate-fade">
+    <h2 class="text-center titulo-principal mb-4">
+      Resultado da Análise da IA
+    </h2>
+
+    <!-- Porcentagem -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-6">
+        <div class="card text-center shadow-lg porcentagem-card">
+          <div class="card-body">
+            <h3 class="display-5 fw-bold">{{ porcentagem }}%</h3>
+            <p class="mb-0">Porcentagem de Similaridade</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Similaridades -->
-  <div class="card shadow mb-4">
-    <div class="card-header bg-success text-light fw-bold">
-      Similaridades Identificadas
+    <!-- Similaridades -->
+    <div class="card shadow mb-4">
+      <div class="card-header bg-success text-light fw-bold">
+        Similaridades Identificadas
+      </div>
+      <div class="card-body">
+        <p class="text-justify">{{ similaridades }}</p>
+      </div>
     </div>
-    <div class="card-body">
-      <p class="text-justify">{{ similaridades }}</p>
-    </div>
-  </div>
 
-  <!-- Diferenças -->
-  <div class="card shadow mb-5">
-    <div class="card-header bg-danger text-light fw-bold">
-      Diferenças Identificadas
-    </div>
-    <div class="card-body">
-      <p class="text-justify">{{ diferencas }}</p>
+    <!-- Diferenças -->
+    <div class="card shadow mb-5">
+      <div class="card-header bg-danger text-light fw-bold">
+        Diferenças Identificadas
+      </div>
+      <div class="card-body">
+        <p class="text-justify">{{ diferencas }}</p>
+      </div>
     </div>
   </div>
 </div>
-<footer>
-  <app-footer></app-footer>
-</footer>
+

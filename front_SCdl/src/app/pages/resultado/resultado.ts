@@ -1,18 +1,26 @@
-import { Component, Input } from '@angular/core';
-import { MenuComponent } from "../../components/menu/menu";
-import { FooterComponent } from "../../components/footer/footer";
+import { Component } from '@angular/core';
+import { AnaliseService } from '../../services/AnaliseService';
 
 @Component({
   selector: 'app-resultado-analise',
   standalone: true,
   templateUrl: './resultado.html',
-  styleUrls: ['./resultado.scss'],
-  imports: [MenuComponent, FooterComponent]
+  styleUrls: ['./resultado.scss']
+  
 })
 export class ResultadoAnaliseComponent {
 
-  @Input() similaridades: string = '';
-  @Input() diferencas: string = '';
-  @Input() porcentagem: number = 0;
+  constructor(public analiseService: AnaliseService) {}
 
+  get similaridades() {
+    return this.analiseService.similaridades;
+  }
+
+  get diferencas() {
+    return this.analiseService.diferencas;
+  }
+
+  get porcentagem() {
+    return this.analiseService.porcentagem;
+  }
 }

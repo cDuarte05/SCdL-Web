@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DefaultUpload } from '../../components/default-upload/default-upload';
 import { MenuComponent } from '../../components/menu/menu';
 import { FooterComponent } from '../../components/footer/footer';
+import { Router } from '@angular/router';
+import { AnaliseService } from '../../services/AnaliseService';
+
 
 @Component({
   selector: 'app-main-screen',
@@ -21,15 +19,15 @@ export class MainScreen {
   form!: FormGroup;
   porcentagemEnvio = 0;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private analiseService: AnaliseService
+  ) {
     this.form = this.fb.group({
       upload_proposta: [null, Validators.required],
       upload_licitacao: [null, Validators.required],
     });
-  }
-
-  onPropostaSelected(file: File) {
-    this.form.get;
   }
 
   compararDocumentos() {
@@ -38,8 +36,16 @@ export class MainScreen {
     const intervalo = setInterval(() => {
       if (this.porcentagemEnvio >= 100) {
         clearInterval(intervalo);
+
+        //Simula dados da análise (depois trocar pelo backend)
+        this.analiseService.similaridades = "Trecho em comum X, Y, Z...";
+        this.analiseService.diferencas = "Trecho A diferente de B...";
+        this.analiseService.porcentagem = 72;
+
+        this.router.navigate(['/resultados']);
         return;
       }
+
       this.porcentagemEnvio += 10;
     }, 300);
   }
