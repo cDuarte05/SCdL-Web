@@ -12,7 +12,7 @@ public class Licitacao {
     private int id;
 
     @Column(name = "id_usuario_fk")
-    private int idUsuarioFk;
+    private String idUsuarioFk;
 
     @Column(name = "nome_arquivo")
     private String nomeArquivo;
@@ -28,8 +28,8 @@ public class Licitacao {
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}
 
-    public int getIdUsuarioFk() {return idUsuarioFk;}
-    public void setIdUsuarioFk(int idUsuarioFk) {this.idUsuarioFk = idUsuarioFk;}
+    public String getIdUsuarioFk() {return idUsuarioFk;}
+    public void setIdUsuarioFk(String idUsuarioFk) {this.idUsuarioFk = idUsuarioFk;}
 
     public String getNomeArquivo() {return nomeArquivo;}
     public void setNomeArquivo(String nomeArquivo) {this.nomeArquivo = nomeArquivo;}
