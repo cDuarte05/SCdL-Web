@@ -10,36 +10,40 @@ public class Comparacao {
 
     @Id
     @Column(name = "id_licitacao_fk")
-    private int idLicitacaoFk;
+    private Integer idLicitacaoFk;
 
     @Id
     @Column(name = "id_proposta_fk")
-    private int idPropostaFk;
+    private Integer idPropostaFk;
 
-    @Column(name = "txt_semelhanca")
+    @Column(name = "txt_semelhanca", columnDefinition = "TEXT")
     private String txtSemelhanca;
 
-    @Column(name = "txt_diferenca")
+    @Column(name = "txt_diferenca", columnDefinition = "TEXT")
     private String txtDiferenca;
 
     private int nota;
 
     @Column(name = "data_comparacao")
-    private LocalDateTime dataComparacao;
+    private LocalDateTime dataComparacao = LocalDateTime.now();
 
-    public int getIdLicitacaoFk() {
+
+    // GETTERS E SETTERS -----------------------
+
+
+    public Integer getIdLicitacaoFk() {
         return idLicitacaoFk;
     }
 
-    public void setIdLicitacaoFk(int idLicitacaoFk) {
+    public void setIdLicitacaoFk(Integer idLicitacaoFk) {
         this.idLicitacaoFk = idLicitacaoFk;
     }
 
-    public int getIdPropostaFk() {
+    public Integer getIdPropostaFk() {
         return idPropostaFk;
     }
 
-    public void setIdPropostaFk(int idPropostaFk) {
+    public void setIdPropostaFk(Integer idPropostaFk) {
         this.idPropostaFk = idPropostaFk;
     }
 

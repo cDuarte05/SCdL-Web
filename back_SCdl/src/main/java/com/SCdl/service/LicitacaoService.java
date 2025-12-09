@@ -1,8 +1,8 @@
 package com.SCdl.service;
 
 import com.SCdl.model.Licitacao;
-import com.SCdl.web.login.user.domain.User;
 import com.SCdl.repositories.LicitacaoRepository;
+import com.SCdl.web.login.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,24 +20,35 @@ public class LicitacaoService {
         this.licitacaoRepository = licitacaoRepository;
     }
 
+    // ✔ método usado no upload normal (com usuário logado)
     public Licitacao salvarNovaLicitacao(User usuarioLogado, MultipartFile arquivo) throws IOException {
 
-        // 1. Validação do usuário
         if (usuarioLogado == null) {
             throw new RuntimeException("Nenhum usuário logado. Upload não permitido.");
         }
 
-        // 2. Lê conteúdo do PDF
-        byte[] conteudoPdf = arquivo.getBytes();
+        Licitacao nova = new Licitacao();
+        nova.setIdUsuarioFk(usuarioLogado.getId());
+        nova.setNomeArquivo(arquivo.getOriginalFilename());
+        nova.setArquivoPdf(arquivo.getBytes());
+        nova.setDataEnvio(LocalDateTime.now());
 
-        // 3. Monta objeto Licitacao
-        Licitacao novaLicitacao = new Licitacao();
-        novaLicitacao.setIdUsuarioFk(usuarioLogado.getId());
-        novaLicitacao.setNomeArquivo(arquivo.getOriginalFilename());
-        novaLicitacao.setArquivoPdf(conteudoPdf);
-        novaLicitacao.setDataEnvio(LocalDateTime.now()); // opcional, caso sua tabela use DATA_ENVIO
+        return licitacaoRepository.save(nova);
+    }
 
-        // 4. Salva via repository JPA
-        return licitacaoRepository.save(novaLicitacao);
+    // ✔ método usado pelo AnaliseService (sem usuário, só para salvar pdf)
+    public Licitacao salvar(MultipartFile arquivo) throws IOException {
+
+        if (arquivo == null || arquivo.isEmpty()) {
+            throw new IllegalArgumentException("Arquivo inválido.");
+        }
+
+        Licitacao nova = new Licitacao();
+        nova.setNomeArquivo(arquivo.getOriginalFilename());
+        nova.setArquivoPdf(arquivo.getBytes());
+        nova.setDataEnvio(LocalDateTime.now());
+        nova.setIdUsuarioFk(null); // banco deve permitir
+
+        return licitacaoRepository.save(nova);
     }
 }

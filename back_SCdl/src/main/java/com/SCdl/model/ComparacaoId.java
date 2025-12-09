@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class ComparacaoId implements Serializable {
 
-    private int idLicitacaoFk;
-    private int idPropostaFk;
+    private Integer idLicitacaoFk;
+    private Integer idPropostaFk;
 
     public ComparacaoId() {
     }

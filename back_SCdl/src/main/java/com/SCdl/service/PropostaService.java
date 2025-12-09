@@ -1,8 +1,8 @@
 package com.SCdl.service;
 
 import com.SCdl.model.Proposta;
-import com.SCdl.web.login.user.domain.User;
 import com.SCdl.repositories.PropostaRepository;
+import com.SCdl.web.login.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,39 +20,35 @@ public class PropostaService {
         this.propostaRepository = propostaRepository;
     }
 
-    /**
-     * Salva uma nova proposta enviada pelo usuário.
-     *
-     * @param usuarioLogado usuário autenticado (pode ser null — será validado)
-     * @param arquivo MultipartFile enviado pelo cliente
-     * @return Proposta salva (com id preenchido)
-     * @throws IOException se houver erro na leitura dos bytes do arquivo
-     */
+    // ✔ método com usuário logado
     public Proposta salvarNovaProposta(User usuarioLogado, MultipartFile arquivo) throws IOException {
 
-        // valida usuário
         if (usuarioLogado == null) {
             throw new RuntimeException("Nenhum usuário logado. Upload não permitido.");
         }
 
-        // valida arquivo
+        Proposta nova = new Proposta();
+        nova.setIdUsuarioFk(usuarioLogado.getId());
+        nova.setNomeArquivo(arquivo.getOriginalFilename());
+        nova.setArquivoPdf(arquivo.getBytes());
+        nova.setDataEnvio(LocalDateTime.now());
+
+        return propostaRepository.save(nova);
+    }
+
+    // ✔ método usado pelo AnaliseService
+    public Proposta salvar(MultipartFile arquivo) throws IOException {
+
         if (arquivo == null || arquivo.isEmpty()) {
-            throw new IllegalArgumentException("Arquivo inválido ou não informado.");
+            throw new IllegalArgumentException("Arquivo inválido.");
         }
 
-        // lê bytes do PDF
-        byte[] conteudoPdf = arquivo.getBytes();
+        Proposta nova = new Proposta();
+        nova.setNomeArquivo(arquivo.getOriginalFilename());
+        nova.setArquivoPdf(arquivo.getBytes());
+        nova.setDataEnvio(LocalDateTime.now());
+        nova.setIdUsuarioFk(null);
 
-        // monta entidade
-        Proposta novaProposta = new Proposta();
-        // ATENÇÃO: alinhar tipos entre User.id e Proposta.idUsuarioFk.
-        // Aqui seguimos o padrão do LicitacaoService: usar o id do User diretamente.
-        novaProposta.setIdUsuarioFk(usuarioLogado.getId());
-        novaProposta.setNomeArquivo(arquivo.getOriginalFilename());
-        novaProposta.setArquivoPdf(conteudoPdf);
-        novaProposta.setDataEnvio(LocalDateTime.now()); // opcional se DB preencher automaticamente
-
-        // salva via repository JPA
-        return propostaRepository.save(novaProposta);
+        return propostaRepository.save(nova);
     }
 }
