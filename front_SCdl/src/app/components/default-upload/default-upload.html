@@ -19,6 +19,9 @@
   />
 
 </div>
+<div class="mt-2" *ngIf="file">
+  <strong>Arquivo selecionado:</strong> {{ file.name }}
+</div>
 
 <!--
 Como o botão normal de selecionar é feio, aqui escondemos ele e criamos um botão que possui o 

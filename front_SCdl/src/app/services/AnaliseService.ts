@@ -1,8 +1,19 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
-@Injectable({ providedIn: 'root' })
+
+@Injectable({
+  providedIn: 'root'
+})
 export class AnaliseService {
-  similaridades = '';
-  diferencas = '';
-  porcentagem = 0;
+
+  similaridades: string = "";
+  diferencas: string = "";
+  porcentagem: number = 0;
+
+  constructor(private http: HttpClient) { }
+
+  enviarArquivos(formData: FormData) {
+    return this.http.post<any>("http://localhost:8080/api/analise/enviar", formData);
+  }
 }

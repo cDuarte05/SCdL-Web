@@ -15,7 +15,7 @@ import { AnaliseService } from '../../services/AnaliseService';
   styleUrl: './main-screen.scss',
 })
 export class MainScreen {
-  
+
   form!: FormGroup;
   porcentagemEnvio = 0;
 
@@ -31,23 +31,25 @@ export class MainScreen {
   }
 
   compararDocumentos() {
-    this.porcentagemEnvio = 0;
+    if (!this.form.valid) {
+      return;
+    }
 
-    const intervalo = setInterval(() => {
-      if (this.porcentagemEnvio >= 100) {
-        clearInterval(intervalo);
+    const formData = new FormData();
+    formData.append("upload_proposta", this.form.get("upload_proposta")!.value);
+    formData.append("upload_licitacao", this.form.get("upload_licitacao")!.value);
 
-        //Simula dados da análise (depois trocar pelo backend)
-        this.analiseService.similaridades = "Trecho em comum X, Y, Z...";
-        this.analiseService.diferencas = "Trecho A diferente de B...";
-        this.analiseService.porcentagem = 72;
+   this.analiseService.enviarArquivos(formData).subscribe({
+  next: (res: any) => {
+    this.analiseService.similaridades = res.semelhancas;
+    this.analiseService.diferencas = res.diferencas;
+    this.analiseService.porcentagem = res.nota;
+  },
+  error: (err: any) => {
+    console.error("Erro:", err);
+  }
+});
 
-        this.router.navigate(['/resultados']);
-        return;
-      }
-
-      this.porcentagemEnvio += 10;
-    }, 300);
   }
 }
 

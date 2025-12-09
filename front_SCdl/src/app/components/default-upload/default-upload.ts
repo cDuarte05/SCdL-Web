@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -12,6 +13,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
   templateUrl: './default-upload.html',
+  imports: [CommonModule],
   styleUrl: './default-upload.scss',
 })
 export class DefaultUpload implements ControlValueAccessor {
@@ -19,19 +21,20 @@ export class DefaultUpload implements ControlValueAccessor {
   @Input() accept: string = '*/*';
   @Input() inputName: string = '';
 
-  file?: File | null;
-  
+  file: File | null = null;
+
+
 
   // triggerFileInput(input: HTMLInputElement) {
   //   input.click();
   // }
 
   //Essas duas variaveis são funções vazias definidas para não dar erro quando forem chamadas
-  onChange = (file: File | null) => {};
+  onChange = (file: File | null) => { };
   //mesmo que vá ser substituido pelo fn, isso acontece em tempo de execução,
   // sendo assim o ts não consegue prever e sem esses parametros, acabaria quebrando na parte do onfileChange
 
-  onTouched = () => {};
+  onTouched = () => { };
 
   onFileChange(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -58,7 +61,7 @@ export class DefaultUpload implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  setDisabledState(disabled: boolean): void {}
+  setDisabledState(disabled: boolean): void { }
 }
 
 /*componente padrão pro que vai ser usado em cada um dos botões de upload
